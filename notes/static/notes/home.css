@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fefae0;
+}
+
+nav header{
+    background: linear-gradient(to right, #d38c46, #d69d71);
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    font-family: 'Protest Riot', cursive;
+    font-weight: 100;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 10px 15px #b8b5b5;
+}
+
+nav header a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.add-note{
+    cursor: pointer;
+    background-color: #e76f51;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
+}
+.add-note a{
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+}
+
+.add-note a span{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.add-note:hover, .add-note a:hover{
+    background-color: #e25d3b;
+    color: black;
+}
+
+.notes{
+    margin: 50px 10px 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.note-card{
+    background-color: #e9edc9;
+    padding: 10px;
+    margin: 5px;
+    width: 300px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+.note-card:nth-child(2n+1){
+    width: 200px;
+}
+
+.note-card:nth-child(2n){
+    width: 150px;
+}
+
+.note-card:nth-child(3n){
+    width: 360px;
+}
+
+.note-card a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.note-card p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note-card:hover,
+.note-card a:hover{
+    background-color: #ccd5ae;
+    box-shadow: 0 10px 10px #adabab;
+    transition-duration: 0.5s;
+}
