@@ -14,7 +14,11 @@ class Notes(models.Model):
         if self.title == "" and self.content != "":
             self.title = self.content[:12]
             super().save(*args, **kwargs)
+        
         elif self.content == "" and self.title != "": 
+            super().save(*args, **kwargs)
+
+        elif self.title != "" and self.content != "":
             super().save(*args, **kwargs)
         else:
             pass

@@ -5,17 +5,35 @@ from .models import Notes
 
 # Create your views here.
 def home(request):
-    all_notes = Notes.objects.all()
+    all_notes = Notes.objects.all().order_by("-created_at")
     return render(request, 'notes/home.html', {"all_notes": all_notes})
 
 def add_note(request):
     if request.method == "POST":
-        title = request.POST.get("title")
-        content = request.POST.get("content")
+        print(request.POST)
+        title = request.POST["title"]
+        content = request.POST["content"]
         note = Notes(title=title, content=content)
         note.save()
         return HttpResponseRedirect(reverse("home"))
     return render(request, 'notes/add_note.html')
 
 def edit_note(request, id):
-    return render(request, "notes/edit_note.html")
+    print(id)
+    print(request.GET)
+    if request.method == "POST":
+        print(request.POST)
+        note = Notes.objects.get(id=id)
+        note.title = request.POST.get("title")
+        note.content = request.POST.get("content")
+        note.save()
+        return HttpResponseRedirect(reverse("home"))
+    note = Notes.objects.get(id=id)
+    return render(request, "notes/edit_note.html", {
+        "note": note
+    })
+
+def delete_note(request, id):
+    note = Notes.objects.get(id=id)
+    note.delete()
+    return HttpResponseRedirect(reverse("home"))

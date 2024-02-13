@@ -44,10 +44,15 @@ nav header input{
     font-family: 'Protest Riot', cursive;
 }
 
+nav header a{
+    text-decoration: none;
+    color: #2e2d2d;
+}
+
 nav header button{
     border: none;
     background: transparent;
-    cursor: pointer;
+    color: #2e2d2d;
 }
 
 
