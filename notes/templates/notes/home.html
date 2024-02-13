@@ -1,24 +1,30 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'notes/home.css' %}">
     <title>Your Notes</title>
 </head>
 <body>
     <nav>
         <header>
-            <h1>Your Notes</h1>
-            <a class="add-note" href="{% url "add-note" %}">Add Note</a>
+            <h1><a href="{% url "home" %}">Your Notes</a></h1>
+            <div class="add-note">
+                <a href="{% url "add-note" %}"><span>Add</span></a>
+            </div>
         </header>
     </nav>
-    <main>
+    <div class="notes">
         {% for note in all_notes %}
-            <div class="note">
+            <div class="note-card"><a href="{% url "edit-note" note.id %}">
                 <h2>{{ note.title }}</h2>
                 <p>{{ note.content }}</p>
+                </a>
             </div>
         {% endfor %}
-    </main>
+    </div>
 </body>
 </html>
