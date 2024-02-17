@@ -10,7 +10,6 @@ def home(request):
 
 def add_note(request):
     if request.method == "POST":
-        print(request.POST)
         title = request.POST["title"]
         content = request.POST["content"]
         note = Notes(title=title, content=content)
@@ -22,7 +21,6 @@ def edit_note(request, id):
     print(id)
     print(request.GET)
     if request.method == "POST":
-        print(request.POST)
         note = Notes.objects.get(id=id)
         note.title = request.POST.get("title")
         note.content = request.POST.get("content")
